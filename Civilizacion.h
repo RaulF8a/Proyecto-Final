@@ -18,6 +18,22 @@ class Civilizacion{
         void setPuntuacion (float value);
         float getPuntuacion ();
 
+        bool operator == (const Civilizacion &c){
+            return nombre == c.nombre;
+        }
+
+        bool operator == (const Civilizacion &c) const{
+            return nombre == c.nombre;
+        }
+
+        bool operator < (const Civilizacion &c){
+            return nombre < c.nombre;
+        }
+
+        bool operator < (const Civilizacion &c) const{
+            return nombre < c.nombre;
+        }
+
     private:
         string nombre;
         size_t x;

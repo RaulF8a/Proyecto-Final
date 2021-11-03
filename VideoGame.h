@@ -16,12 +16,15 @@ class VideoGame{
         void agregarCivilizacion (const Civilizacion &value);
         void insertarCivilizacion (const Civilizacion &value, size_t position);
         void inicializarCivilizaciones (const Civilizacion &value, size_t n);
-        void primeraCivilizacion ();
-        void ultimaCivilizacion ();
-        void ordenarCivilizaciones();
-        void eliminarCivilizacion (const Civilizacion &value);
+        Civilizacion primeraCivilizacion ();
+        Civilizacion ultimaCivilizacion ();
+        void ordenarNombre ();
+        void ordenarX ();
+        void ordenarY ();
+        void ordenarPuntuacion ();
+        void eliminarCivilizacion (const string &value);
         Civilizacion* buscarCivilizacion (const Civilizacion &value);
-        void totalCivilizaciones (); //usar vector.size()
+        size_t totalCivilizaciones (); //usar vector.size()
 
     private:
         string nombreUsuario;
