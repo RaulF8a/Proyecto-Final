@@ -53,7 +53,7 @@ class Civilizacion{
             cout << "Posicion en X: ";
             cin >> c.x;
 
-            cout << "Posicion en X: ";
+            cout << "Posicion en Y: ";
             cin >> c.y;
 
             cout << "Puntuacion: ";

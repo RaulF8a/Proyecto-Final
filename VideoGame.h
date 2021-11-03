@@ -23,8 +23,14 @@ class VideoGame{
         void ordenarY ();
         void ordenarPuntuacion ();
         void eliminarCivilizacion (const string &value);
-        Civilizacion* buscarCivilizacion (const Civilizacion &value);
+        Civilizacion* buscarCivilizacion (const string &value);
         size_t totalCivilizaciones (); //usar vector.size()
+        size_t compararNombre (const string value);
+        void modificarNombre (size_t position, const string &nombre);
+        void modificarPosicionX (size_t position, int posX);
+        void modificarPosicionY (size_t position, int posY);
+        void modificarPuntuacion (size_t position, float puntuacion);
+        void mostrarCivilizaciones ();
 
     private:
         string nombreUsuario;

@@ -46,7 +46,7 @@ void VideoGame::ordenarY (){
 }
 
 void VideoGame::ordenarPuntuacion (){
-    sort (civilizaciones.begin(), civilizaciones.end(), [](Civilizacion c1, Civilizacion c2){return c1.getPuntuacion () < c2.getPuntuacion ();});
+    sort (civilizaciones.begin(), civilizaciones.end(), [](Civilizacion c1, Civilizacion c2){return c1.getPuntuacion () > c2.getPuntuacion ();});
 }
 
 void VideoGame::eliminarCivilizacion (const string &value){
@@ -54,8 +54,8 @@ void VideoGame::eliminarCivilizacion (const string &value){
     civilizaciones.erase (std::remove_if(civilizaciones.begin(), civilizaciones.end(), [&value](Civilizacion &v)->bool{return v.getNombre() == value;}), civilizaciones.end());
 }
 
-Civilizacion* VideoGame::buscarCivilizacion (const Civilizacion &value){
-    auto it = find (civilizaciones.begin(), civilizaciones.end(), value);
+Civilizacion* VideoGame::buscarCivilizacion (const string &value){
+    auto it = find_if(civilizaciones.begin(), civilizaciones.end(), [&value](Civilizacion &v){return v.getNombre() == value;});
 
     if (it == civilizaciones.end()){
         return nullptr;
@@ -67,4 +67,50 @@ Civilizacion* VideoGame::buscarCivilizacion (const Civilizacion &value){
 
 size_t VideoGame::totalCivilizaciones (){
     return civilizaciones.size ();
+}
+
+size_t VideoGame::compararNombre (const string value){
+    size_t posicion;
+
+    for (size_t i = 0; i < totalCivilizaciones(); i++){
+        if (civilizaciones[i].getNombre() == value){
+            posicion = i;
+            return posicion;
+        }
+    }
+
+    return totalCivilizaciones ();
+}
+
+void VideoGame::modificarNombre (size_t position, const string &nombre){
+    civilizaciones[position].setNombre (nombre);
+}
+
+void VideoGame::modificarPosicionX (size_t position, int posX){
+    civilizaciones[position].setX (posX);
+}
+
+void VideoGame::modificarPosicionY (size_t position, int posY){
+    civilizaciones[position].setY (posY);
+}
+
+void VideoGame::modificarPuntuacion (size_t position, float puntuacion){
+    civilizaciones[position].setPuntuacion (puntuacion);
+}
+
+void VideoGame::mostrarCivilizaciones (){
+    cout << left;
+    cout << setw (20) << "Nombre";
+    cout << setw (20) << "Posicion en X";
+    cout << setw (25) << "Posicion en Y";
+    cout << setw (30) << "Puntuacion";
+    cout << endl;
+
+    for (size_t i = 0; i < totalCivilizaciones (); i++){
+        Civilizacion &c = civilizaciones[i];
+
+        cout << c;
+
+        cout << endl;
+    }
 }
