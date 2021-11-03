@@ -2,6 +2,7 @@
 #define CIVILIZACION_H
 #include <iostream>
 #include <stdlib.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -32,6 +33,33 @@ class Civilizacion{
 
         bool operator < (const Civilizacion &c) const{
             return nombre < c.nombre;
+        }
+
+        friend ostream& operator << (ostream &out, const Civilizacion &c){
+            out << left;
+            out << setw(20) << c.nombre;
+            out << setw(20) << c.x;
+            out << setw(25) << c.y;
+            out << setw(30) << c.puntuacion;
+
+            return out;
+        }
+
+        friend istream& operator >> (istream &in, Civilizacion &c){
+            cout << "Nombre de la Civilizacion: ";
+            fflush (stdin);
+            getline (cin, c.nombre);
+
+            cout << "Posicion en X: ";
+            cin >> c.x;
+
+            cout << "Posicion en X: ";
+            cin >> c.y;
+
+            cout << "Puntuacion: ";
+            cin >> c.puntuacion;
+
+            return in;
         }
 
     private:
