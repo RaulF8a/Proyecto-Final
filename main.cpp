@@ -273,7 +273,7 @@ void menu (){
                     cout << setw (25) << "Posicion en Y";
                     cout << setw (30) << "Puntuacion";
                     cout << endl;
-                    cout << "\n" << *videojuego.buscarCivilizacion (auxString) << endl;
+                    cout << *videojuego.buscarCivilizacion (auxString) << "\n" << endl;
                     system ("pause");
 
                     banderaModificar = true;
@@ -306,7 +306,7 @@ void menu (){
                             case 2:
                                 system ("cls");
 
-                                cout << "Digita la nueva posicion en X: ";
+                                cout << "\nDigita la nueva posicion en X: ";
                                 cin >> auxInt;
 
                                 videojuego.modificarPosicionX (posicion, auxInt);
@@ -317,7 +317,7 @@ void menu (){
                             case 3:
                                 system ("cls");
 
-                                cout << "Digita la nueva posicion en Y: ";
+                                cout << "\nDigita la nueva posicion en Y: ";
                                 cin >> auxInt;
 
                                 videojuego.modificarPosicionY (posicion, auxInt);
@@ -328,7 +328,7 @@ void menu (){
                             case 4:
                                 system ("cls");
 
-                                cout << "Digita la nueva puntuacion: ";
+                                cout << "\nDigita la nueva puntuacion: ";
                                 cin >> auxFloat;
 
                                 videojuego.modificarPuntuacion (posicion, auxFloat);
