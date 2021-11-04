@@ -126,7 +126,14 @@ void menu (){
                 cout << "\t\tPrimera Civilizacion\n" << endl;
 
                 if (videojuego.totalCivilizaciones () > 0){
-                    cout << videojuego.primeraCivilizacion ();
+                    cout << left;
+                    cout << setw (20) << "Nombre";
+                    cout << setw (20) << "Posicion en X";
+                    cout << setw (25) << "Posicion en Y";
+                    cout << setw (30) << "Puntuacion";
+                    cout << endl;
+
+                    cout << videojuego.primeraCivilizacion () << endl;
                 }
                 else{
                     cout << "Aun no se agrega ninguna civilizacion." << endl;
@@ -140,7 +147,14 @@ void menu (){
                 cout << "\t\tUltima Civilizacion\n" << endl;
 
                 if (videojuego.totalCivilizaciones () > 0){
-                    cout << videojuego.ultimaCivilizacion ();
+                    cout << left;
+                    cout << setw (20) << "Nombre";
+                    cout << setw (20) << "Posicion en X";
+                    cout << setw (25) << "Posicion en Y";
+                    cout << setw (30) << "Puntuacion";
+                    cout << endl;
+
+                    cout << videojuego.ultimaCivilizacion () << endl;
                 }
                 else{
                     cout << "Aun no se agrega ninguna civilizacion." << endl;
@@ -271,6 +285,7 @@ void menu (){
                         cout << "2. Modificar Posicion en X." << endl;
                         cout << "3. Modificar Posicion en Y." << endl;
                         cout << "4. Modificar Puntuacion." << endl;
+                        cout << "0. Salir." << endl;
 
                         cout << "\nOpcion: ";
                         cin >> opcionModificar;
@@ -319,6 +334,9 @@ void menu (){
                                 videojuego.modificarPuntuacion (posicion, auxFloat);
 
                                 cout << "\nPuntuacion modificada con exito." << endl;
+                                banderaModificar = false;
+                                break;
+                            case 0:
                                 banderaModificar = false;
                                 break;
                             default:
