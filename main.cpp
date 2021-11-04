@@ -101,7 +101,7 @@ void menu (){
 
                     cin >> auxCivilizacion;
 
-                    videojuego.inicializarCivilizaciones (auxCivilizacion, posicion);
+                    videojuego.insertarCivilizacion (auxCivilizacion, posicion);
                     cout << "\nCivilizacion insertada con exito." << endl;
                 }
 
