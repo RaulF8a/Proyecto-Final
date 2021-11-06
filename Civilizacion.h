@@ -3,6 +3,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <iomanip>
+#include <list>
+#include "Aldeano.h"
 
 using namespace std;
 
@@ -67,6 +69,8 @@ class Civilizacion{
         size_t x;
         size_t y;
         float puntuacion;
+
+        list <Aldeano> aldeanos;
 };
 
 #endif
