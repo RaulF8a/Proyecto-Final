@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "VideoGame.h"
+#include "MenuCivilizacion.h"
 
 using namespace std;
 
@@ -252,6 +253,9 @@ void menu (){
                     cout << *videojuego.buscarCivilizacion (auxString);
 
                     cout << "\n" << endl;
+                    system ("pause");
+
+                    menuCivilizacion (*videojuego.buscarCivilizacion (auxString));
                 }
 
                 system ("pause");

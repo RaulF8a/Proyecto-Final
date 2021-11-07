@@ -21,6 +21,22 @@ class Civilizacion{
         void setPuntuacion (float value);
         float getPuntuacion ();
 
+        void agregarFinal (const Aldeano &value);
+        void agregarInicio (const Aldeano &value);
+        void mostrarAldeanos ();
+        void eliminarNombre (const string &value);
+        void eliminarSalud (size_t value);
+        void eliminarEdad ();
+        void ordenarNombre ();
+        void ordenarEdad ();
+        void ordenarSalud ();
+        Aldeano* buscarAldeano (const string &value);
+
+        void modificarNombre (Aldeano &value, const string &nuevoNombre);
+        void modificarEdad (Aldeano &value, size_t nuevaEdad);
+        void modificarGenero (Aldeano &value, const string &nuevoGenero);
+        void modificarSalud (Aldeano &value, float nuevaSalud);
+
         bool operator == (const Civilizacion &c){
             return nombre == c.nombre;
         }
