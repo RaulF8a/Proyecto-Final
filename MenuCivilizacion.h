@@ -11,6 +11,7 @@ Aldeano capturarAldeano (){
 void menuCivilizacion (Civilizacion &c){
     int opcionAldeano, opcionAgregarAldeano, opcionEliminarAldeano, opcionOrdenarAldeano, opcionModificarAldeano, auxInt;
     float auxFloat;
+    bool banderaAgregar, banderaEliminar, banderaOrdenar, banderaModificar;
     size_t auxT;
     Aldeano auxAldeano;
     Aldeano* auxAldeanoPTR;
@@ -33,6 +34,8 @@ void menuCivilizacion (Civilizacion &c){
 
         switch (opcionAldeano){
             case 1:
+                banderaAgregar = true;
+
                 do{
                     system ("cls");
                     cout << "\t\tAgregar Aldeano\n" << endl;
@@ -54,6 +57,7 @@ void menuCivilizacion (Civilizacion &c){
 
                             cout << "\nAldeano agregado al inicio con exito." << endl;
 
+                            banderaAgregar = false;
                             system ("pause");
                             break;
                         case 2:
@@ -65,17 +69,21 @@ void menuCivilizacion (Civilizacion &c){
 
                             cout << "\nAldeano agregado al final con exito." << endl;
 
+                            banderaAgregar = false;
                             system ("pause");
                             break;
                         case 0:
+                            banderaAgregar = false;
                             break;
                         default:
                             cout << "\nOpcion no valida." << endl;
                             system ("pause");
                     }
-                }while (opcionAgregarAldeano != 0);
+                }while (banderaAgregar);
                 break;
             case 2:
+                banderaEliminar = true;
+
                 do{
                     system ("cls");
                     cout << "\t\tEliminar Aldeano\n" << endl;
@@ -99,6 +107,8 @@ void menuCivilizacion (Civilizacion &c){
                             if (c.buscarAldeano (auxString) != nullptr){
                                 c.eliminarNombre (auxString);
                                 cout << "\nAldeano eliminado con exito." << endl;
+
+                                banderaEliminar = false;
                             }
                             else{
                                 cout << "\nNo se encontro al aldeano." << endl;
@@ -116,6 +126,7 @@ void menuCivilizacion (Civilizacion &c){
 
                             cout << "\nElementos eliminados con exito." << endl;
 
+                            banderaEliminar = false;
                             system ("pause");
                             break;
                         case 3:
@@ -123,18 +134,22 @@ void menuCivilizacion (Civilizacion &c){
 
                             c.eliminarEdad ();
 
+                            banderaEliminar = false;
                             cout << "\nElementos eliminados con exito." << endl;
                             system ("pause");
                             break;
                         case 0:
+                            banderaEliminar = false;
                             break;
                         default:
                             cout << "\nOpcion no valida." << endl;
                             system ("pause"); 
                     }
-                }while (opcionEliminarAldeano != 0);
+                }while (banderaEliminar);
                 break;
             case 3:
+                banderaOrdenar = true;
+
                 do{
                     system ("cls");
                     cout << "\t\tOrdenar Aldeanos\n" << endl;
@@ -154,6 +169,8 @@ void menuCivilizacion (Civilizacion &c){
                             c.ordenarNombre ();
 
                             cout << "\nAldeanos ordenados por nombre con exito." << endl;
+
+                            banderaOrdenar = false;
                             system ("pause");
                             break;
                         case 2:
@@ -162,6 +179,8 @@ void menuCivilizacion (Civilizacion &c){
                             c.ordenarEdad ();
 
                             cout << "\nAldeanos ordenados por edad con exito." << endl;
+                            
+                            banderaOrdenar = false;
                             system ("pause");
                             break;
                         case 3:
@@ -170,15 +189,18 @@ void menuCivilizacion (Civilizacion &c){
                             c.ordenarSalud ();
 
                             cout << "\nAldeanos ordenados por salud con exito." << endl;
+                            
+                            banderaOrdenar = false;
                             system ("pause");
                             break;
                         case 0:
+                            banderaOrdenar = false;
                             break;
                         default:
                             cout << "\nOpcion no valida." << endl;
                             system ("pause");
                     }
-                }while (opcionOrdenarAldeano != 0);
+                }while (banderaOrdenar);
                 break;
             case 4:
                 system ("cls");
@@ -199,7 +221,7 @@ void menuCivilizacion (Civilizacion &c){
                     cout << endl;
                     cout << *auxAldeanoPTR;
 
-                    cout << endl;
+                    cout << "\n" << endl;
                 }
                 else{
                     cout << "\nNo se encontro al aldeano." << endl;
@@ -208,16 +230,19 @@ void menuCivilizacion (Civilizacion &c){
                 system ("pause");
                 break;
             case 5:
+                banderaModificar = true;
+
                 system ("cls");
                 cout << "\t\tModificar Aldeano\n" << endl;
 
-                cout << "Digita el nombre del aldeano." << endl;
+                cout << "Digita el nombre del aldeano: ";
                 fflush (stdin);
                 getline (cin, auxString);
 
                 auxAldeanoPTR = c.buscarAldeano (auxString);
 
                 if (auxAldeanoPTR != nullptr){
+                    cout << endl;
                     cout << left;
                     cout << setw (20) << "Nombre";
                     cout << setw (20) << "Edad";
@@ -251,6 +276,7 @@ void menuCivilizacion (Civilizacion &c){
                                 c.modificarNombre (*auxAldeanoPTR, auxString);
 
                                 cout << "\nNombre modificado con exito." << endl;
+                                banderaModificar = false;
                                 system ("pause");
                                 break;
                             case 2:
@@ -262,6 +288,7 @@ void menuCivilizacion (Civilizacion &c){
                                 c.modificarEdad (*auxAldeanoPTR, auxT);
 
                                 cout << "\nEdad modificada con exito." << endl;
+                                banderaModificar = false;
                                 system ("pause");
                                 break;
                             case 3:
@@ -274,29 +301,33 @@ void menuCivilizacion (Civilizacion &c){
                                 c.modificarGenero (*auxAldeanoPTR, auxString);
 
                                 cout << "\nGenero modificado con exito." << endl;
+                                banderaModificar = false;
                                 system ("pause");
                                 break;
                             case 4:
                                 system ("cls");
 
-                                cout << "Digita la nueva salud: ";
+                                cout << "\nDigita la nueva salud: ";
                                 cin >> auxFloat;
 
                                 c.modificarSalud (*auxAldeanoPTR, auxFloat);
 
                                 cout << "\nSalud modificada con exito." << endl;
+                                banderaModificar = false;
                                 system ("pause");
                                 break;
                             case 0:
+                                banderaModificar = false;
                                 break;
                             default:
                                 cout << "\nOpcion no valida." << endl;
                                 system ("pause");
                         }
-                    }while (opcionModificarAldeano != 0);
+                    }while (banderaModificar);
                 }
                 else{
                     cout << "\nNo se encontro al aldeano." << endl;
+                    system ("pause");
                 }
                 break;
             case 6:

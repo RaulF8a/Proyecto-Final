@@ -241,6 +241,7 @@ void menu (){
 
                 if (videojuego.buscarCivilizacion (auxString) == nullptr){
                     cout << "\nNo se encontro la civilizacion." << endl;
+                    system ("pause");
                 }
                 else{
                     cout << "\nSe encontro el elemento: " << endl;
@@ -258,7 +259,6 @@ void menu (){
                     menuCivilizacion (*videojuego.buscarCivilizacion (auxString));
                 }
 
-                system ("pause");
                 break;
             case OPC_MODIFICAR:
                 system ("cls");
