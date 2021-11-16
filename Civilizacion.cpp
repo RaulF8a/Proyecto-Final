@@ -124,3 +124,52 @@ void Civilizacion::modificarGenero (Aldeano &value, const string &nuevoGenero){
 void Civilizacion::modificarSalud (Aldeano &value, float nuevaSalud){
     value.setSalud (nuevaSalud);
 }
+
+void Civilizacion::respaldarAldeanos (){
+    ofstream archivo (getNombre() + ".txt", ios::out);
+
+    for (auto it = aldeanos.begin (); it != aldeanos.end(); it++){
+        Aldeano &a = *it;
+
+        archivo << a.getNombre () << endl;
+        archivo << a.getEdad () << endl;
+        archivo << a.getGenero () << endl;
+        archivo << a.getSalud () << endl;
+    }
+
+    archivo.close ();
+}
+
+void Civilizacion::recuperarAldeanos (Civilizacion &c){
+    ifstream archivo (c.getNombre() + ".txt");
+
+    string tempS;
+    size_t tempT;
+    float tempF;
+    Aldeano a;
+
+    while (true){
+        getline (archivo, tempS);
+
+        if (archivo.eof ()){
+            break;
+        }
+
+        a.setNombre (tempS);
+
+        getline (archivo, tempS);
+        tempT = stoi (tempS);
+        a.setEdad (tempT);
+
+        getline (archivo, tempS);
+        a.setGenero (tempS);
+
+        getline (archivo, tempS);
+        tempF = stof (tempS);
+        a.setSalud (tempF);
+
+        c.agregarFinal (a);
+    }
+
+    archivo.close ();
+}

@@ -17,7 +17,9 @@ enum Opciones{
     OPC_ELIMINAR,
     OPC_BUSCAR,
     OPC_MODIFICAR,
-    OPC_RESUMEN
+    OPC_RESUMEN,
+    OPC_RESPALDAR,
+    OPC_RECUPERAR
 };
 
 void menu ();
@@ -55,6 +57,8 @@ void menu (){
         cout << OPC_BUSCAR << ". Buscar Civilizacion." << endl;
         cout << OPC_MODIFICAR << ". Modificar Civilizacion." << endl;
         cout << OPC_RESUMEN << ". Resumen de las Civilizaciones." << endl;
+        cout << OPC_RESPALDAR << ". Respaldar Civilizaciones." << endl;
+        cout << OPC_RECUPERAR << ". Recuperar Civilizaciones." << endl;
         cout << OPC_SALIR << ". Salir." << endl;
 
         cout << "\nOpcion: ";
@@ -362,6 +366,24 @@ void menu (){
                 videojuego.mostrarCivilizaciones ();
 
                 cout << endl;
+                system ("pause");
+                break;
+            case OPC_RESPALDAR:
+                system ("cls");
+                cout << "\t\tRespaldar Civilizaciones\n" << endl;
+
+                videojuego.respaldarCivilizaciones ();
+                
+                cout << "Civilizaciones respaldadas con exito.\n" << endl;
+                system ("pause");
+                break;
+            case OPC_RECUPERAR:
+                system ("cls");
+                cout << "\t\tRecuperar Civilizaciones\n" << endl;
+
+                videojuego.recuperarCivilizaciones ();
+
+                cout << "Civilizaciones recuperadas con exito.\n" << endl;
                 system ("pause");
                 break;
             case OPC_SALIR:

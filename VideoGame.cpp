@@ -114,3 +114,64 @@ void VideoGame::mostrarCivilizaciones (){
         cout << endl;
     }
 }
+
+void VideoGame::respaldarCivilizaciones (){
+    ofstream archivo ("Civilizaciones.txt");
+
+    if (archivo.is_open ()){
+        for (size_t i = 0; i < civilizaciones.size (); i++){
+            Civilizacion &c = civilizaciones[i];
+
+            archivo << c.getNombre () << endl;
+            archivo << c.getX () << endl;
+            archivo << c.getY () << endl;
+            archivo << c.getPuntuacion () << endl;
+
+            c.respaldarAldeanos ();
+        }
+    }
+
+    archivo.close ();
+}
+
+void VideoGame::recuperarCivilizaciones (){
+    ifstream archivo ("Civilizaciones.txt");
+
+    if (archivo.is_open ()){
+        string tempS;
+        size_t tempT;
+        float tempF;
+        Civilizacion c;
+
+        while (true){
+            getline (archivo, tempS);
+
+            if (archivo.eof ()){
+                break;
+            }
+
+            c.setNombre (tempS);
+
+            getline (archivo, tempS);
+            tempT = stoi (tempS);
+            c.setX (tempT);
+
+            getline (archivo, tempS);
+            tempT = stoi (tempS);
+            c.setY (tempT);
+
+            getline (archivo, tempS);
+            tempF = stof (tempS);
+            c.setPuntuacion (tempF);
+
+            agregarCivilizacion (c);
+        }
+
+        archivo.close ();
+    }
+
+    for (size_t i = 0; i < civilizaciones.size (); i++){
+            Civilizacion &c = civilizaciones[i];
+            c.recuperarAldeanos (c);
+    }
+}

@@ -31,6 +31,8 @@ class VideoGame{
         void modificarPosicionY (size_t position, int posY);
         void modificarPuntuacion (size_t position, float puntuacion);
         void mostrarCivilizaciones ();
+        void respaldarCivilizaciones ();
+        void recuperarCivilizaciones ();
 
     private:
         string nombreUsuario;

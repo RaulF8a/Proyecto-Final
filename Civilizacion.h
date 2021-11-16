@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <iomanip>
 #include <list>
+#include <fstream>
 #include "Aldeano.h"
 
 using namespace std;
@@ -36,6 +37,9 @@ class Civilizacion{
         void modificarEdad (Aldeano &value, size_t nuevaEdad);
         void modificarGenero (Aldeano &value, const string &nuevoGenero);
         void modificarSalud (Aldeano &value, float nuevaSalud);
+
+        void respaldarAldeanos ();
+        void recuperarAldeanos (Civilizacion &c);
 
         bool operator == (const Civilizacion &c){
             return nombre == c.nombre;
