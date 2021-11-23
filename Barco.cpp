@@ -74,8 +74,11 @@ void Barco::mostrarGuerreros (){
     cout << setw(20) << "Tipo";
     cout << endl;
 
-    for (size_t i = 0; i < copiaGuerreros.size (); i++){
-        cout << copiaGuerreros.top () << endl;
+    while (!copiaGuerreros.empty ()){
+        Guerrero g = copiaGuerreros.top ();
+
+        cout << g << endl;
+
         copiaGuerreros.pop ();
     }
 }

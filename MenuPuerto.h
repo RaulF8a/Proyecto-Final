@@ -140,9 +140,9 @@ void menuPuerto (Civilizacion &c){
                 }
                 else{
                     cout << "\nNo se encontro el barco." << endl;
+                    system ("pause");
                 }
 
-                system ("pause");
                 break;
             case 4:
                 do{
@@ -195,7 +195,6 @@ void menuPuerto (Civilizacion &c){
 
                 }while (banderaEliminar);
 
-                system ("pause");
                 break;
             case 0:
                 break;
