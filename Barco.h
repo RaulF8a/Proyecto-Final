@@ -1,6 +1,7 @@
 #ifndef BARCO_H
 #define BARCO_H
 #include <iostream>
+#include <iomanip>
 #include <stack>
 #include "Guerrero.h"
 
@@ -18,6 +19,23 @@ class Barco {
         float getVelocidad ();
         void setArmadura (float value);
         float getArmadura ();
+
+        void agregarGuerrero (const Guerrero &value);
+        void eliminarGuerrero ();
+        void topeGuerrero ();
+        size_t sizeGuerreros ();
+        void mostrarGuerreros ();
+
+        friend ostream& operator << (ostream &out, Barco &b){
+            out << left;
+            out << setw(20) << b.id;
+            out << setw(20) << b.combustible;
+            out << setw(25) << b.velocidad;
+            out << setw(20) << b.armadura;
+            out << setw(20) << b.sizeGuerreros();
+
+            return out;
+        }
 
     private:
         string id;

@@ -173,3 +173,51 @@ void Civilizacion::recuperarAldeanos (Civilizacion &c){
 
     archivo.close ();
 }
+
+void Civilizacion::agregarBarco (Barco *value){
+    puerto.push_back (value);
+}
+
+void Civilizacion::mostrarBarcos (){
+    cout << left;
+    cout << setw (20) << "ID";
+    cout << setw (20) << "Combustible";
+    cout << setw (25) << "Velocidad";
+    cout << setw (20) << "Armadura";
+    cout << setw (20) << "Numero de Guerreros";
+    cout << endl;
+
+    for (auto it = puerto.begin (); it != puerto.end (); it++){
+        auto &barco = *it;
+
+        cout << *barco << endl;
+    }
+}
+
+Barco* Civilizacion::buscarBarco (const string &value){
+    for (auto it = puerto.begin (); it != puerto.end (); it++){
+        auto &barco = *it;
+
+        if (barco->getID () == value){
+            return barco;
+        }
+    }
+
+    return nullptr;
+}
+
+void Civilizacion::eliminarID (const string &value){
+    for (auto it = puerto.begin (); it != puerto.end (); it++){
+        auto &barco = *it;
+
+        if (barco->getID () == value){
+            puerto.remove (barco);
+
+            break;
+        }
+    }
+}
+
+void Civilizacion::eliminarCombustible (float value){
+    puerto.remove_if ([value](Barco *b){return b->getCombustible() < value;});
+}

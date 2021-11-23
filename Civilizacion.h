@@ -6,6 +6,7 @@
 #include <list>
 #include <fstream>
 #include "Aldeano.h"
+#include "Barco.h"
 
 using namespace std;
 
@@ -40,6 +41,12 @@ class Civilizacion{
 
         void respaldarAldeanos ();
         void recuperarAldeanos (Civilizacion &c);
+
+        void agregarBarco (Barco *value);
+        void mostrarBarcos ();
+        Barco* buscarBarco (const string &value);
+        void eliminarID (const string &value);
+        void eliminarCombustible (float value);
 
         bool operator == (const Civilizacion &c){
             return nombre == c.nombre;
@@ -91,6 +98,7 @@ class Civilizacion{
         float puntuacion;
 
         list <Aldeano> aldeanos;
+        list <Barco*> puerto;
 };
 
 #endif

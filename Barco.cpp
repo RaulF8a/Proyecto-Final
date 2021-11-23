@@ -1,7 +1,10 @@
 #include "Barco.h"
 
 Barco::Barco (){
-
+    id = "";
+    combustible = 0.0;
+    velocidad = 0.0;
+    armadura = 0.0;
 }
 
 void Barco::setID (const string &value){
@@ -34,4 +37,45 @@ void Barco::setArmadura (float value){
 
 float Barco::getArmadura (){
     return armadura;
+}
+
+size_t Barco::sizeGuerreros (){
+    return guerreros.size ();
+}
+
+void Barco::agregarGuerrero (const Guerrero &value){
+    guerreros.push (value);
+}
+
+void Barco::eliminarGuerrero (){
+    guerreros.pop ();
+}
+
+void Barco::topeGuerrero (){
+    cout << left;
+    cout << setw(20) << "ID del Guerrero";
+    cout << setw(20) << "Salud";
+    cout << setw(20) << "Fuerza";
+    cout << setw(20) << "Escudo";
+    cout << setw(20) << "Tipo";
+    cout << endl;
+
+    cout << guerreros.top () << endl;
+}
+
+void Barco::mostrarGuerreros (){
+    stack<Guerrero> copiaGuerreros (guerreros);
+
+    cout << left;
+    cout << setw(20) << "ID del Guerrero";
+    cout << setw(20) << "Salud";
+    cout << setw(20) << "Fuerza";
+    cout << setw(20) << "Escudo";
+    cout << setw(20) << "Tipo";
+    cout << endl;
+
+    for (size_t i = 0; i < copiaGuerreros.size (); i++){
+        cout << copiaGuerreros.top () << endl;
+        copiaGuerreros.pop ();
+    }
 }

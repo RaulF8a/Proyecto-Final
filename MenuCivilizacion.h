@@ -1,4 +1,5 @@
 #include "Civilizacion.h"
+#include "MenuPuerto.h"
 
 Aldeano capturarAldeano (){
     Aldeano aldeano;
@@ -27,6 +28,7 @@ void menuCivilizacion (Civilizacion &c){
         cout << "4. Buscar Aldeano." << endl;
         cout << "5. Modificar Aldeano." << endl;
         cout << "6. Mostrar Todos los Aldeanos." << endl;
+        cout << "7. Visitar Puerto." << endl;
         cout << "0. Salir." << endl;
 
         cout << "\nOpcion: ";
@@ -339,6 +341,9 @@ void menuCivilizacion (Civilizacion &c){
 
                 cout << endl;
                 system ("pause");
+                break;
+            case 7:
+                menuPuerto (c);
                 break;
             case 0:
                 break;
