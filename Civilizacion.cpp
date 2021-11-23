@@ -212,12 +212,19 @@ void Civilizacion::eliminarID (const string &value){
 
         if (barco->getID () == value){
             puerto.remove (barco);
-
+            delete barco;
             break;
         }
     }
 }
 
 void Civilizacion::eliminarCombustible (float value){
-    puerto.remove_if ([value](Barco *b){return b->getCombustible() < value;});
+    puerto.remove_if ([value](Barco *b){
+        if (b->getCombustible() < value){
+            delete b;
+            return true;
+        }
+        else{
+            return false;
+        }});
 }
