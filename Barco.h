@@ -25,6 +25,7 @@ class Barco {
         void topeGuerrero ();
         size_t sizeGuerreros ();
         void mostrarGuerreros ();
+        bool guerrerosEmpty ();
 
         friend ostream& operator << (ostream &out, Barco &b){
             out << left;

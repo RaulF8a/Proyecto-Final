@@ -82,3 +82,7 @@ void Barco::mostrarGuerreros (){
         copiaGuerreros.pop ();
     }
 }
+
+bool Barco::guerrerosEmpty (){
+    return guerreros.empty ();
+}

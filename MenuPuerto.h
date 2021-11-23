@@ -105,9 +105,14 @@ void menuPuerto (Civilizacion &c){
                                 system ("cls");
                                 cout << "\t\tEliminar Guerrero\n" << endl;
 
-                                auxBarco->eliminarGuerrero ();
+                                if (auxBarco->guerrerosEmpty()){
+                                    cout << "No has agregado ningun guerrero.\n" << endl;
+                                }
+                                else{
+                                    auxBarco->eliminarGuerrero ();
 
-                                cout << "Guerrero al tope eliminado con exito.\n" << endl;
+                                    cout << "Guerrero al tope eliminado con exito.\n" << endl;
+                                }
 
                                 system ("pause");
                                 break;
