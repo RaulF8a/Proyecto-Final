@@ -21,7 +21,7 @@ void menuCivilizacion (Civilizacion &c){
      do{
         system ("cls");
 
-        cout << "\t\tMenu de Aldeanos\n" << endl;
+        cout << "\t\tMenu de Civilizacion\n" << endl;
         cout << "1. Agregar Aldeano." << endl;
         cout << "2. Eliminar Aldeano." << endl;
         cout << "3. Clasificar Aldeanos." << endl; 

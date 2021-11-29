@@ -52,15 +52,20 @@ void Barco::eliminarGuerrero (){
 }
 
 void Barco::topeGuerrero (){
-    cout << left;
-    cout << setw(20) << "ID del Guerrero";
-    cout << setw(20) << "Salud";
-    cout << setw(20) << "Fuerza";
-    cout << setw(20) << "Escudo";
-    cout << setw(20) << "Tipo";
-    cout << endl;
+    if (!guerreros.empty ()){
+        cout << left;
+        cout << setw(20) << "ID del Guerrero";
+        cout << setw(20) << "Salud";
+        cout << setw(20) << "Fuerza";
+        cout << setw(20) << "Escudo";
+        cout << setw(20) << "Tipo";
+        cout << endl;
 
-    cout << guerreros.top () << endl;
+        cout << guerreros.top () << endl;
+    }
+    else{
+        return;
+    }
 }
 
 void Barco::mostrarGuerreros (){

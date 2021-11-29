@@ -39,14 +39,47 @@ class Guerrero{
             fflush (stdin);
             getline (cin, g.id);
 
-            cout << "Salud: ";
-            cin >> g.salud;
+            do{
+                cout << "Salud (0-100): ";
+                cin >> g.salud;
 
-            cout << "Fuerza: ";
-            cin >> g.fuerza;
+                if (g.salud < 0 or g.salud > 100){
+                    cout << "\nValor no valido." << endl;
+                    system ("pause");
+                    system ("cls");
+                }
+                else{
+                    break;
+                }
+            }while (1);
 
-            cout << "Escudo: ";
-            cin >> g.escudo;
+            do{
+                cout << "Fuerza (0-60): ";
+                cin >> g.fuerza;
+
+                if (g.fuerza < 0 or g.fuerza > 60){
+                    cout << "\nValor no valido." << endl;
+                    system ("pause");
+                    system ("cls");
+                }
+                else{
+                    break;
+                }
+            }while (1);
+
+            do{
+                cout << "Escudo (0-30): ";
+                cin >> g.escudo;
+
+                if (g.escudo < 0 or g.escudo > 30){
+                    cout << "\nValor no valido." << endl;
+                    system ("pause");
+                    system ("cls");
+                }
+                else{
+                    break;
+                }
+            }while (1);
 
             do{
                 system ("cls");

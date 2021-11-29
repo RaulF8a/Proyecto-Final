@@ -11,7 +11,7 @@ Guerrero registrarGuerrero (){
 
 void menuPuerto (Civilizacion &c){
     int opcionMenu, opcionGuerrero, opcionEliminar;
-    bool banderaEliminar = true;
+    bool banderaEliminar = true, banderaCombustible = true;
     size_t auxT;
     float auxF;
     string auxS;
@@ -44,8 +44,23 @@ void menuPuerto (Civilizacion &c){
                 getline (cin, auxS);
                 b->setID (auxS);
 
-                cout << "Combustible: ";
-                cin >> auxF;
+                do{
+                    fflush (stdin);
+
+                    cout << "Combustible (0-100): ";
+                    cin >> auxF;
+
+                    if (auxF < 0 or auxF > 100){
+                        cout << "\nValor no valido." << endl;
+                        system ("pause");
+                        system ("cls");
+                    }
+                    else{
+                        banderaCombustible = false;
+                    }
+
+                }while(banderaCombustible);
+
                 b->setCombustible (auxF);
 
                 c.agregarBarco (b);
