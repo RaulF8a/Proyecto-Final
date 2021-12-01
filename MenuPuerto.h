@@ -204,6 +204,7 @@ void menuPuerto (Civilizacion &c){
 
                             cout << "\nBarcos eliminados con exito." << endl;
 
+                            banderaEliminar = false;
                             system ("pause");
                             break;
                         case 0:
