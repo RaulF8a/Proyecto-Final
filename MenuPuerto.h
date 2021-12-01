@@ -45,6 +45,7 @@ void menuPuerto (Civilizacion &c){
                 b->setID (auxS);
 
                 do{
+                    banderaCombustible = true;
                     fflush (stdin);
 
                     cout << "Combustible (0-100): ";
